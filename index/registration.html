@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>ABC Learning Center | Registration</title>
+   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!--this is jquery link because it help mobile view menu-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script><!--link for bootstrap-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script><!--link for bootstrap-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"><!--link for bootstrap-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../style/style.css">
+    
+        
+       <!--top nav start here-->
+       <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand gra" href="index.html"> <image src="../image/logo.jpg" alt="MSP" height="60px" width="60px" ></image></a>
+        <strong style="font-size: 25px;" class="gra">ABC Learning Center</strong>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto" style="font-size: 20px; padding-left: 20px;">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Courses
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="wdd.html">WDD course</a>
+                <a class="dropdown-item" href="prg.html">PRG course</a>
+                <a class="dropdown-item" href="dbd.html">DBD course</a>
+              </div>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="registration.html" >Registration</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="login.html" >Login</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="sitemap.html" >Site Map</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="contactus.html" >Contact us</a> </li>
+
+          </ul>
+
+          <form class="form-inline my-2 my-lg-0"> 
+            <input class="form-control mr-sm-2" type="text" placeholder="Search"> 
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+
+        </div>
+      </nav>
+
+<!--end of top navgation-->
+
+
+<script>
+    function validate()
+    { 
+ 
+      var input=true;
+      
+    
+        var name = document.forms["saikhant"]["txtname"].value;
+        var email = document.forms["saikhant"]["txtemail"].value;
+        var phone = document.forms["saikhant"]["txtphone"].value;
+        var fname = document.forms["saikhant"]["txtfname"].value;
+        var birth = document.forms["saikhant"]["txtbirth"].value;
+        var address= document.forms["saikhant"]["txtaddress"].value;
+        var nrc = document.forms["saikhant"]["txtnrc"].value;
+        var password = document.forms["saikhant"]["txtpassword"].value;
+        var rpassword=document.forms["saikhant"]["txtrpassword"].value;
+        if(name=="")
+        {
+            document.getElementById("error_name").innerHTML="Please enter your name";
+            input=false;
+        }
+        else if (!checklength(name,1,50))
+                    {
+                        document.getElementById("error_name").innerHTML="Please enter under 50 character";
+                        input=false;
+                    }
+      
+        //end for name
+
+      
+     
+        else if(email=="")
+        {
+            document.getElementById("error_email").innerHTML="Please enter your email address";
+            input=false;
+        }
+      
+        //end for email
+        
+        else if(phone=="")
+        {
+            document.getElementById("error_phone").innerHTML="Please enter your contact number";
+            input=false;
+        }
+        else if (!checklength(phone,11,11))
+        {
+            document.getElementById("error_phone").innerHTML="contact number must be at most 11 digts";
+            input=false;
+        }
+        else if(!phone.match(/^[0-9]+$/))
+        {
+            document.getElementById("error_phone").innerHTML="Please enter number only";
+            input=false;
+        }
+       
+//end for phone
+
+
+        
+        else if(fname=="")
+        {
+            document.getElementById("error_fname").innerHTML="Please enter your father name";
+            input=false;
+        }
+    
+        //end for father name
+
+        else if(birth=="")
+        {
+            document.getElementById("error_birth").innerHTML="Please enter your birthday";
+            input=false;
+        }
+    
+        //end for date of birth
+
+       
+        else if(nrc=="")
+        {
+            document.getElementById("error_nrc").innerHTML="Please enter your NRC no";
+            input=false;
+        }
+    
+
+        //end for NRC number
+
+       
+        else if(address=="")
+        {
+            document.getElementById("error_address").innerHTML="Please enter your address";
+            input=false;
+        }
+    
+        //end for address
+
+        else if(password=="" )
+        {
+            document.getElementById("error_password").innerHTML="Please enter your password";
+            input=false
+        }
+        else if (rpassword=="")
+        {
+            document.getElementById("error_rpassword").innerHTML="Please enter retype password";
+            input=false
+        }
+        else if ( password != rpassword)
+        {
+            document.getElementById("error_rpassword").innerHTML="Password don't match";
+            input=false
+        }
+
+
+      else{
+
+        var dataString = 'name=' + name + 'email=' + email + 'phone=' + phone + 'fname=' + fname + 'birth=' + birth + 'nrc=' + nrc+ 'address=' + address + 'password=' + password;
+       
+         $.ajax(
+          {
+            type: "POST",
+            url: "action.php",
+            data :dataString,
+            success: function (result) {
+              window.location.replace('thankyou.html');
+             
+         
+            }
+          });
+        
+      }
+      return input;
+    }
+     
+     
+
+
+  
+    function checkblank(name, error)
+            {
+                var x = document.getElementById(name).value;
+                if(x=="")
+                {
+                    document.getElementById(error).innerHTML = "Please fill the required fields";
+                }
+                else{
+                    document.getElementById(error).innerHTML = "";
+                }
+            }
+            
+
+            /*check validate email*/
+            function checkemail()
+            {
+                var email = document.forms["saikhant"]["txtemail"].value;
+                if(email=="")
+                {
+                    document.getElementById("error_email").innerHTML = "Please fill the required fields";
+                }
+                else{
+                    var email = document.forms["saikhant"]["txtemail"].value;
+                    var first = email.indexOf("@");
+                    var second = email.lastIndexOf(".");
+                    if(first<3 || second< first+3)
+                    {
+                        document.getElementById("error_email").innerHTML = "Insert the email with '@' and '.' sign";
+                    }
+                    else{
+                        document.getElementById("error_email").innerHTML = "";
+                    }
+                  }
+                 }
+  function checklength(text,min,max)
+		{
+			min=min ||1;
+			max=max || 200;
+			if(text .length<min || text.length>max) return false;
+			return true;
+		}
+
+
+  
+    
+
+
+</script>
+
+
+</head>
+<body >
+
+
+    <form name="saikhant" method="post"  onsubmit="return validate()"  >
+        <div class="container registrationform">
+            <h3 style="text-align: center;">Registration Form</h3>
+            <hr width="10%">
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Name:</label>
+          <div class="col-sm-8">
+            <input type="text"  class="form-control" name="txtname" id="txtname"  onblur="checkblank('txtname','error_name')">
+            <p id="error_name" style="color:red;"></p>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Email address: </label>
+            <div class="col-sm-8">
+              <input type="text"  class="form-control" name="txtemail" id="txtemail" onblur="checkemail()">
+              <p id="error_email" style="color:red;"></p>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Phone Number:</label>
+            <div class="col-sm-8">
+              <input type="text"  class="form-control" name="txtphone" id="txtphone"  onblur="checkblank('txtphone','error_phone')">
+              <p id="error_phone" style="color:red;"></p>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Father Name: </label>
+            <div class="col-sm-8">
+              <input type="text"  class="form-control" name="txtfname" id="txtfname"  onblur="checkblank('txtfname','error_fname')">
+              <p id="error_fname" style="color:red;"></p>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date of Birth: </label>
+            <div class="col-sm-8">
+              <input type="date"  class="form-control" name="txtbirth" id="txtbirth"  onblur="checkblank('txtbirth','error_birth')">
+              <p id="error_birth" style="color:red;"></p>
+            </div>
+          </div>
+
+         
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">NRC: </label>
+            <div class="col-sm-8">
+              <input type="text"  class="form-control" name="txtnrc" id="txtnrc"  onblur="checkblank('txtnrc','error_nrc')">
+              <p id="error_nrc" style="color:red;"></p>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Address: </label>
+            <div class="col-sm-8">
+              <textarea type="text"  class="form-control" name="txtaddress" id="txtaddress"  onblur="checkblank('txtaddress','error_address')"></textarea>
+             
+              <p id="error_address" style="color:red;"></p>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Password: </label>
+            <div class="col-sm-8">
+              <input type="password"  class="form-control" name="txtpassword" id="txtpassword"  onblur="checkblank('txtpassword','error_password')">
+              <p id="error_password" style="color:red;"></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Retype Password: </label>
+            <div class="col-sm-8">
+              <input type="password"  class="form-control" name="txtrpassword" id="txtrpassword"  onblur="checkblank('txtrpassword','error_rpassword')">
+              <p id="error_rpassword" style="color:red;"></p>
+            </div>
+          </div>
+          <p>If you have account so click <a href="login.html">here</a>  to login in</p>
+          <p>
+
+            <input type="hidden" name="submitted" value="1">
+          <button type="submit" class="btn btn-primary formbtn" >Submit</button>
+          
+<br>
+    </div>
+      </form>
+
+      <br>
+      <br>
+</body>
+
+
+<!-- Footer -->
+    
+<footer class="page-footer font-small blue pt-4" >
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-4 mt-md-0 mt4">
+  <!-- Links -->
+  <h5 class="text-uppercase">Privacy</h5>
+  
+    
+  <ul class="list-unstyled">
+    <li>
+      <a href="privacy.html" class="footera">Privacy Policy</a>
+    </li>
+  
+    
+  </ul>
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-4 mb-md-0 mb-4">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase" >About Us</h5>
+  
+          <ul class="list-unstyled">
+            <li aria-hidden="true"> 
+              <a href="aboutus.html" class="footera">About Us</a>
+            </li>
+     
+  
+            
+          </ul>
+  
+        </div>
+        
+        <!--social media link-->
+        <div class="col-md-4 mb-md-0 mb-4">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase">Contact us</h5>
+  
+          <ul class="list-unstyled">
+     
+              <a href="contactus.html" class="footera">Contact Us </a>
+       
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+   <!-- Copyright -->
+   <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a>ABC Learning Center</a>
+  </div>
+  <!-- Copyright -->
+    </div>
+    <!-- Footer Links -->
+  
+    
+  
+  </footer>
+  <!-- Footer -->
+  </html>
